@@ -37,6 +37,7 @@ body {
     position: relative;
     /* parent of an absolute positioned element */
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    /* x y coordinates in clockwise path from top left corner  */
 }
 
 .logo-box {
