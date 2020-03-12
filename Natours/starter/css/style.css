@@ -57,6 +57,7 @@ body {
     /* top and left are in relation to parent element */
     transform: translate(-50%, -50%);
     /* shift 50% each direction so its actually centered  */
+    text-align: center;
 }
 
 .heading-primary {
@@ -88,6 +89,8 @@ body {
     animation-name: moveInRight;
     animation-duration: 1s;
     animation-timing-function: ease-out;
+
+    margin-bottom: 60px;
 }
 
 @keyframes moveInLeft {
@@ -120,4 +123,75 @@ body {
         opacity: 1;
         transform: translate(0);
     }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translatey(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    border-radius: 100px;
+    transition: all .2s;
+    /* transition is always on the initial state for the transforms to happen */
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+    /* x y and blur above */
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scalex(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation-name: moveInBottom;
+    animation-duration: .5s;
+    animation-timing-function: ease-out;
+    animation-delay: .75s;
+    animation-fill-mode: backwards;
+    /* automatically applies 0% styles before start of animation */
 }
